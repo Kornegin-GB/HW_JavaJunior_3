@@ -2,7 +2,6 @@ package ru.fsv67;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Написать класс с двумя методами:
@@ -12,15 +11,13 @@ import java.util.UUID;
  */
 public class Main {
     public static void main(String[] args) {
-        String path = Employees.class.getName() + "_" + UUID.randomUUID();
-
         List<Employees> employees = Arrays.asList(
                 new Employees(38, "Сергей", "Java разработчик"),
                 new Employees(30, "Иван", "Android разработчик")
         );
 
         SerializableObjectToFile serializableObjectToFile = new SerializableObjectToFile();
-        serializableObjectToFile.writingObjectToFile(employees, path);
-        serializableObjectToFile.readingObjectFromFile(path);
+        serializableObjectToFile.writingObjectToFile(employees);
+        serializableObjectToFile.readingObjectFromFile(serializableObjectToFile.getPath());
     }
 }
